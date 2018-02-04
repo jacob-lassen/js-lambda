@@ -4,6 +4,8 @@ const {
     not,
 } = require('./logic');
 
+const zero = f => x => x;
+
 const succ = n => f => x => f(n(f)(x));
 
 const add = n => m => f => x => m(f)(n(f)(x));
@@ -17,6 +19,7 @@ const isZero = n => n(() => boolFalse)(boolTrue);
 const isEven = n => n(not)(boolTrue);
 
 module.exports = {
+    zero,
     succ,
     add,
     mul,
